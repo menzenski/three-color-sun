@@ -4,56 +4,59 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 
+// Three Color Sun theme things
+// (import these first to define the variables before bootstrap does)
+@import "threecolorsun/tcs-miscellaneous-styles";
+@import "threecolorsun/tcs-colors";
+
 // Core variables and mixins
-@import "bootstrap/variables";
-@import "bootstrap/mixins";
+@import "tcsbootstrap/variables";
+@import "tcsbootstrap/mixins";
 
 // Reset and dependencies
-@import "bootstrap/normalize";
-@import "bootstrap/print";
-@import "bootstrap/glyphicons";
+@import "tcsbootstrap/normalize";
+@import "tcsbootstrap/print";
+@import "tcsbootstrap/glyphicons";
 
 // Core CSS
-@import "bootstrap/scaffolding";
-@import "bootstrap/type";
-@import "bootstrap/code";
-@import "bootstrap/grid";
-@import "bootstrap/tables";
-@import "bootstrap/forms";
-@import "bootstrap/buttons";
+@import "tcsbootstrap/scaffolding";
+@import "tcsbootstrap/type";
+@import "tcsbootstrap/code";
+@import "tcsbootstrap/grid";
+@import "tcsbootstrap/tables";
+@import "tcsbootstrap/forms";
+@import "tcsbootstrap/buttons";
 
 // Components
-@import "bootstrap/component-animations";
-@import "bootstrap/dropdowns";
-@import "bootstrap/button-groups";
-@import "bootstrap/input-groups";
-@import "bootstrap/navs";
-@import "bootstrap/navbar";
-@import "bootstrap/breadcrumbs";
-@import "bootstrap/pagination";
-@import "bootstrap/pager";
-@import "bootstrap/labels";
-@import "bootstrap/badges";
-@import "bootstrap/jumbotron";
-@import "bootstrap/thumbnails";
-@import "bootstrap/alerts";
-@import "bootstrap/progress-bars";
-@import "bootstrap/media";
-@import "bootstrap/list-group";
-@import "bootstrap/panels";
-@import "bootstrap/responsive-embed";
-@import "bootstrap/wells";
-@import "bootstrap/close";
+@import "tcsbootstrap/component-animations";
+@import "tcsbootstrap/dropdowns";
+@import "tcsbootstrap/button-groups";
+@import "tcsbootstrap/input-groups";
+@import "tcsbootstrap/navs";
+@import "tcsbootstrap/navbar";
+@import "tcsbootstrap/breadcrumbs";
+@import "tcsbootstrap/pagination";
+@import "tcsbootstrap/pager";
+@import "tcsbootstrap/labels";
+@import "tcsbootstrap/badges";
+@import "tcsbootstrap/jumbotron";
+@import "tcsbootstrap/thumbnails";
+@import "tcsbootstrap/alerts";
+@import "tcsbootstrap/progress-bars";
+@import "tcsbootstrap/media";
+@import "tcsbootstrap/list-group";
+@import "tcsbootstrap/panels";
+@import "tcsbootstrap/responsive-embed";
+@import "tcsbootstrap/wells";
+@import "tcsbootstrap/close";
 
 // Components w/ JavaScript
-@import "bootstrap/modals";
-@import "bootstrap/tooltip";
-@import "bootstrap/popovers";
-@import "bootstrap/carousel";
+@import "tcsbootstrap/modals";
+@import "tcsbootstrap/tooltip";
+@import "tcsbootstrap/popovers";
+@import "tcsbootstrap/carousel";
 
 // Utility classes
-@import "bootstrap/utilities";
-@import "bootstrap/responsive-utilities";
+@import "tcsbootstrap/utilities";
+@import "tcsbootstrap/responsive-utilities";
 
-// Three Color Sun theme things
-@import "threecolorsun/tcs-styles";
