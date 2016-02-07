@@ -1,20 +1,80 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--* The three meta tags above *must* come first in the head;
+        * any other head content must come after these tags. *-->
+    <title>{{ page.title }}</title>
+    {% if page.description %}
+      <meta name="description" content="{{ page.description }}">
+    {% endif %}
+    <meta name="author" content="{{ site.author.name }}">
 
-  {% include head.html %}
-
+    <!-- Bootstrap styles -->
+    {% include base.html %}
+    <link href="{{ base }}/css/main.css" rel="stylesheet">
+    <!--* HTML5 shim and Respond.js for IE8 support of HTML5 elements
+        * and media queries *-->
+    <!-- WARNING: Respond.js doesn't work if page is viewed with file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js">
+      </script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js">
+      </script>
+      <![endif]-->
+  </head>
   <body>
 
-    {% include header.html %}
+    <div id="wrap">
 
-    <div class="page-content">
-      <div class="wrapper">
+        <nav class="navbar navbar-default" role="navigation">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle"
+                data-toggle="collapse" data-target="#tcs-navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button><!-- /.navbar-toggle -->
+            <a class="navbar-brand"
+                href="{{ site.basurl }}">{{ site.title }}</a>
+        </div><!-- /.navbar-header -->
+
+        <!-- Collect nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="tcs-navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li>LIST ITEM</li>
+          </ul><!-- /.nav .navbar-nav -->
+          <form class="navbar-form navbar-right" role="search">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Search">
+            </div><!-- /.form-group -->
+            <button type="submit" class="btn btn-default">Submit</button>
+          </form><!-- /.navbar-form .navbar-right -->
+        </div><!-- /.collapse .navbar-collapse -->
+
+      </nav><!-- /.navbar .navbar-default -->
+
+      <div class="container">
         {{ content }}
-      </div>
-    </div>
+      </div><!-- /.container -->
 
-    {% include footer.html %}
+    </div><!-- /#wrap -->
 
+    <div class="footer">
+      <div class="container">
+          <p class="text-muted">&copy; {{ site.time | date: '%Y' }}
+           {{ site.author.name }}.
+           Shared under the terms of the MIT License.</p>
+      </div><!-- /.container -->
+    </div><!-- /#footer -->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script
+    src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js">
+    </script>
   </body>
-
 </html>
