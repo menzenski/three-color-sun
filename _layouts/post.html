@@ -1,16 +1,18 @@
 ---
 layout: default
 ---
-<div class="page-header">
-  <h1>{{ page.title }}
-    {% if page.tagline %}
-      <small>{{ page.tagline }}</small>
-    {% endif %}
-  </h1>
-</div><!-- /.page-header -->
-
 <div class="row post-full">
-  <div class="col-xs-12">
+
+  <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-lg-8 col-lg-offset-2">
+
+    <div class="page-header">
+      <h1>{{ page.title }}
+        {% if page.tagline %}
+          <small>{{ page.tagline }}</small>
+        {% endif %}
+      </h1>
+    </div><!-- /.page-header -->
+
     <div class="date">
       <span>{{ page.date | date_to_long_string }}</span>
     </div><!-- /.date -->
@@ -19,5 +21,7 @@ layout: default
       {{ content }}
     </div><!-- /.content -->
 
-  </div><!-- /.col-xs-12 -->
+  </div><!-- /.col-xs-12 .col-sm-10 .col-sm-offset-1 .col-lg-8
+      .col-lg-offset-2 -->
+
 </div><!-- /.row .post-full -->
