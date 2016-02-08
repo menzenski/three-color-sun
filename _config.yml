@@ -25,3 +25,12 @@ author:
 markdown: kramdown
 sass:
     sass_dir: _sass/
+
+# Page/frontmatter settings
+defaults:
+    -
+        scope:
+            path: ""
+            type: "posts"
+        values:
+            color_scheme: "light"
