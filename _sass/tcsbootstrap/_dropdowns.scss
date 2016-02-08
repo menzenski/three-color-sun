@@ -61,6 +61,17 @@
     @include nav-divider($dropdown-divider-bg);
   }
 
+  // 'headings' within the dropdown menu
+  > li {
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: normal;
+    line-height: $line-height-base;
+    color: $text-color;
+    white-space: nowrap;
+  }
+
   // Links within the dropdown menu
   > li > a {
     display: block;
@@ -71,7 +82,35 @@
     color: $dropdown-link-color;
     white-space: nowrap; // prevent links from randomly breaking onto new lines
   }
+//  > li > a.tcs-yellow-hl {
+//    color: accent-palette('tcs-yellow');
+//  }
+ // Highlight color options appropriately
+ @for $i from 1 through length($accent-class-names) {
+   > li > a.#{nth($accent-class-names, $i)} {
+    color: accent-palette(nth($accent-color-names, $i));
+    &:hover {
+        color: $body-bg;
+        background-color: accent-palette(nth($accent-color-names, $i));
+      }
+    }
+  }
+  > li > a.tcs-light-mode-hl {
+    color: main-palette('tcs-body-text', 'light-mode');
+    &:hover {
+      color: main-palette('tcs-emphasized-content', 'light-mode');
+      background-color: main-palette('tcs-background', 'light-mode');
+    }
+  }
+  > li > a.tcs-dark-mode-hl {
+    color: main-palette('tcs-body-text', 'dark-mode');
+    &:hover {
+      color: main-palette('tcs-emphasized-content', 'dark-mode');
+      background-color: main-palette('tcs-background', 'dark-mode');
+    }
+  }
 }
+
 
 // Hover/Focus state
 .dropdown-menu > li > a {

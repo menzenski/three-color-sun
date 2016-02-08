@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
-<html lang="en">
-  {% include head.html %}
+<html lang="en" {% if page.color_scheme == 'dark' %}class="tcs-dark-mode"
+    {% else %}class="tcs-light-mode"{% endif %} id="tcs-page">
+    {% include head.html %}
   <body>
 
     <div id="wrap">

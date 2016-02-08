@@ -1,0 +1,103 @@
+html.tcs-light-mode body,
+// html.tcs-light-mode #wrap {
+{
+    background: main-palette('tcs-background', 'light-mode');
+    color: main-palette('tcs-body-text', 'light-mode');
+
+    div#tcs-navbar {
+        background: main-palette('tcs-background-highlight', 'light-mode');
+    }
+
+    .tcs-light-mode #tcs-navbar .dropdown-menu #tcs-color-dropdown {
+
+        background-color: main-palette('tcs-background-highlight', 'light-mode');
+
+        @for $i from 1 through length($accent-class-names) {
+            > li > a.#{nth($accent-class-names, $i)} {
+                color: accent-palette(nth($accent-color-names, $i));
+                &:hover {
+                    color: main-palette('tcs-background', 'light-mode');
+                    background-color: accent-palette(nth($accent-color-names, $i));
+                }
+            }
+        }
+        > li > a.tcs-light-mode-hl {
+            color: main-palette('tcs-body-text', 'light-mode');
+            &:hover {
+                color: main-palette('tcs-emphasized-content', 'light-mode');
+                background-color: main-palette('tcs-background', 'light-mode');
+            }
+        }
+        > li > a.tcs-dark-mode-hl {
+            color: main-palette('tcs-body-text', 'dark-mode');
+            &:hover {
+                color: main-palette('tcs-emphasized-content', 'dark-mode');
+                background-color: main-palette('tcs-background', 'dark-mode');
+            }
+        }
+    }
+}
+
+html.tcs-dark-mode body,
+// html.tcs-dark-mode #wrap
+{
+    background: main-palette('tcs-background', 'dark-mode');
+    color: main-palette('tcs-body-text', 'dark-mode');
+
+    .tcs-dark-mode #tcs-navbar .dropdown-menu #tcs-color-dropdown {
+
+        background-color: main-palette('tcs-background-highlight', 'dark-mode');
+
+        @for $i from 1 through length($accent-class-names) {
+            > li > a.#{nth($accent-class-names, $i)} {
+                color: accent-palette(nth($accent-color-names, $i));
+                &:hover {
+                    color: main-palette('tcs-background', 'dark-mode');
+                    background-color: accent-palette(nth($accent-color-names, $i));
+                }
+            }
+        }
+        > li > a.tcs-light-mode-hl {
+            color: main-palette('tcs-body-text', 'light-mode');
+            &:hover {
+                color: main-palette('tcs-emphasized-content', 'light-mode');
+                background-color: main-palette('tcs-background', 'light-mode');
+            }
+        }
+        > li > a.tcs-dark-mode-hl {
+            color: main-palette('tcs-body-text', 'dark-mode');
+            &:hover {
+                color: main-palette('tcs-emphasized-content', 'dark-mode');
+                background-color: main-palette('tcs-background', 'dark-mode');
+            }
+        }
+    }
+}
+
+.tcs-accent {
+    color: $brand-primary;
+}
+.tcs-accent-yellow {
+    color: accent-palette('tcs-yellow');
+}
+.tcs-accent-orange {
+    color: accent-palette('tcs-orange');
+}
+.tcs-accent-red {
+    color: accent-palette('tcs-red');
+}
+.tcs-accent-magenta {
+    color: accent-palette('tcs-magenta');
+}
+.tcs-accent-violet {
+    color: accent-palette('tcs-violet');
+}
+.tcs-accent-blue {
+    color: accent-palette('tcs-blue');
+}
+.tcs-accent-cyan {
+    color: accent-palette('tcs-cyan');
+}
+.tcs-accent-green {
+    color: accent-palette('tcs-green');
+}

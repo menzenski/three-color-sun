@@ -1,4 +1,5 @@
-<nav class="navbar navbar-default navbar-static-top" role="navigation">
+<nav class="navbar navbar-default navbar-static-top" id="tcs-navbar"
+    role="navigation">
 
   <div class="container">
 
@@ -12,7 +13,7 @@
         <span class="icon-bar"></span>
       </button><!-- /.navbar-toggle -->
       {% include base.html %}
-      <a class="navbar-brand"
+      <a class="navbar-brand" id="tcs-navbar-brand"
           href="{{ base }}{{ site.baseurl }}">{{ site.title }}</a>
     </div><!-- /.navbar-header -->
 
@@ -29,20 +30,30 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"
               role="button" aria-haspopup="true"
               aria-expanded="false">Settings<span class="caret"></span></a>
-            <ul class="dropdown-menu">
+            <ul class="dropdown-menu" id="tcs-color-dropdown">
               <li>Color palette</li>
-              <li><a href="#">Light</a></li>
-              <li><a href="#">Dark</a></li>
+              <li><a href="#" class="tcs-light-mode-hl"
+                  id="tcs-go-light">Light</a></li>
+              <li><a href="#" class="tcs-dark-mode-hl"
+                  id="tcs-go-dark">Dark</a></li>
               <li role="separator" class="divider"></li>
               <li>Accent color</li>
-              <li><a href="#">Yellow</a></li>
-              <li><a href="#">Orange</a></li>
-              <li><a href="#">Red</a></li>
-              <li><a href="#">Magenta</a></li>
-              <li><a href="#">Violet</a></li>
-              <li><a href="#">Blue</a></li>
-              <li><a href="#">Cyan</a></li>
-              <li><a href="#">Green</a></li>
+              <li><a href="#" class="tcs-yellow-hl"
+                  id="tcs-go-yellow">Yellow</a></li>
+              <li><a href="#" class="tcs-orange-hl"
+                  id="tcs-go-orange">Orange</a></li>
+              <li><a href="#" class="tcs-red-hl"
+                  id="tcs-go-red">Red</a></li>
+              <li><a href="#" class="tcs-magenta-hl"
+                  id="tcs-go-magenta">Magenta</a></li>
+              <li><a href="#" class="tcs-violet-hl"
+                  id="tcs-go-violet">Violet</a></li>
+              <li><a href="#" class="tcs-blue-hl"
+                  id="tcs-go-blue">Blue</a></li>
+              <li><a href="#" class="tcs-cyan-hl"
+                  id="tcs-go-cyan">Cyan</a></li>
+              <li><a href="#" class="tcs-green-hl"
+                  id="tcs-go-green">Green</a></li>
             </ul><!-- /.dropdown-menu -->
         </li><!-- /.dropdown -->
       </ul><!-- /.nav .navbar-nav .navbar-right -->

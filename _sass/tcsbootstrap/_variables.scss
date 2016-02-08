@@ -3,53 +3,113 @@ $bootstrap-sass-asset-helper: false !default;
 // Variables
 // --------------------------------------------------
 
-
-//== Colors
+//== Solarized Colors
 //
-//## Gray and brand colors for use across Bootstrap.
+//## Definitions for the Solarized color palette
+$base03:  #002b36;
+$base02:  #073642;
+$base01:  #586e75;
+$base00:  #657b83;
+$base0:   #839496;
+$base1:   #93a1a1;
+$base2:   #eee8d5;
+$base3:   #fdf6e3;
 
-$gray-base:              #000 !default;
-$gray-darker:            lighten($gray-base, 13.5%) !default; // #222
-$gray-dark:              lighten($gray-base, 20%) !default;   // #333
-$gray:                   lighten($gray-base, 33.5%) !default; // #555
-$gray-light:             lighten($gray-base, 46.7%) !default; // #777
-$gray-lighter:           lighten($gray-base, 93.5%) !default; // #eee
+$yellow:  #b58900;
+$orange:  #cb4b16;
+$red:     #dc322f;
+$magenta: #d33682;
+$violet:  #6c71c4;
+$blue:    #268bd2;
+$cyan:    #2aa198;
+$green:   #859900;
 
-$brand-primary:         darken(#428bca, 6.5%) !default; // #337ab7
-$brand-success:         #5cb85c !default;
-$brand-info:            #5bc0de !default;
-$brand-warning:         #f0ad4e !default;
-$brand-danger:          #d9534f !default;
+$main-palettes: (
+    tcs-background: (
+        light-mode: $base3,
+        dark-mode:  $base03
+    ),
+    tcs-background-highlight: (
+        light-mode: $base2,
+        dark-mode:  $base02
+    ),
+    tcs-comments: (
+        light-mode: $base1,
+        dark-mode:  $base01
+    ),
+    tcs-body-text: (
+        light-mode: $base00,
+        dark-mode:  $base0
+    ),
+    tcs-emphasized-content: (
+        light-mode: $base01,
+        dark-mode:  $base1
+    )
+);
 
+$accent-class-names: (
+    tcs-yellow-hl, tcs-orange-hl, tcs-red-hl, tcs-magenta-hl,
+    tcs-violet-hl, tcs-blue-hl, tcs-cyan-hl, tcs-green-hl
+);
 
-//== Scaffolding
-//
-//## Settings for some of the most global styles.
+$accent-color-names: (
+    tcs-yellow, tcs-orange, tcs-red, tcs-magenta,
+    tcs-violet, tcs-blue, tcs-cyan, tcs-green
+);
 
-//** Background color for `<body>`.
-$body-bg:               #fff !default;
-//** Global text color on `<body>`.
-$text-color:            $gray-dark !default;
+$accent-palettes: (
+    tcs-yellow:     $yellow,
+    tcs-orange:     $orange,
+    tcs-red:        $red,
+    tcs-magenta:    $magenta,
+    tcs-violet:     $violet,
+    tcs-blue:       $blue,
+    tcs-cyan:       $cyan,
+    tcs-green:      $green
+);
 
-//** Global textual link color.
+@function main-palette($palette, $mode: 'light-mode') {
+    @return map-get(map-get($main-palettes, $palette), $mode);
+}
+
+@function accent-palette($palette: 'tcs-magenta') {
+    @return map-get($accent-palettes, $palette);
+}
+
+$gray-base:     main-palette('tcs-background-highlight', 'light-mode') !default;
+$gray-darker:   $gray-base !default;
+$gray-dark:     $gray-base !default;
+$gray:          $gray-base !default;
+$gray-light:    $gray-base !default;
+$gray-lighter:  $gray-base !default;
+
+$brand-primary: accent-palette('tcs-magenta') !default;
+$brand-success: accent-palette('tcs-green') !default;
+$brand-info:    accent-palette('tcs-cyan') !default;
+$brand-warning: accent-palette('tcs-orange') !default;
+$brand-danger:  accent-palette('tcs-red') !default;
+
+$body-bg:               main-palette(tcs-background, 'light-mode') !default;
+$text-color:            main-palette(tcs-body-text, 'light-mode') !default;
 $link-color:            $brand-primary !default;
-//** Link hover color set via `darken()` function.
-$link-hover-color:      darken($link-color, 15%) !default;
-//** Link hover decoration.
+$link-hover-color:      $text-color !default;
 $link-hover-decoration: underline !default;
-
 
 //== Typography
 //
 //## Font, line-height, and color for body text, headings, and more.
 
-$font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+// @import url(https://fonts.googleapis.com/css?family=Source+Code+Pro:400,500,700|Cousine:400,700&subset=latin,cyrillic);
+
+@import url(https://fonts.googleapis.com/css?family=Fira+Sans:400,500,700|Fira+Mono&subset=latin,cyrillic);
+
+$font-family-sans-serif:  "Fira Sans", Helvetica, Arial, sans-serif !default;
 $font-family-serif:       Georgia, "Times New Roman", Times, serif !default;
 //** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
-$font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace !default;
+$font-family-monospace:   "Fira Mono", monospace !default;
 $font-family-base:        $font-family-sans-serif !default;
 
-$font-size-base:          14px !default;
+$font-size-base:          16px !default;
 $font-size-large:         ceil(($font-size-base * 1.25)) !default; // ~18px
 $font-size-small:         ceil(($font-size-base * 0.85)) !default; // ~12px
 
@@ -243,10 +303,10 @@ $dropdown-border:                rgba(0,0,0,.15) !default;
 //** Dropdown menu `border-color` **for IE8**.
 $dropdown-fallback-border:       #ccc !default;
 //** Divider color for between dropdown items.
-$dropdown-divider-bg:            #e5e5e5 !default;
+$dropdown-divider-bg: main-palette('tcs-background-highlight', 'light-mode') !default;
 
 //** Dropdown link text color.
-$dropdown-link-color:            $gray-dark !default;
+$dropdown-link-color:            main-palette('tcs-comments', 'light-mode') !default;
 //** Hover color for dropdown links.
 $dropdown-link-hover-color:      darken($gray-dark, 5%) !default;
 //** Hover background for dropdown links.
@@ -834,15 +894,15 @@ $close-text-shadow:           0 1px 0 #fff !default;
 //
 //##
 
-$code-color:                  #c7254e !default;
-$code-bg:                     #f9f2f4 !default;
+$code-color:        main-palette('tcs-emphasized-content', 'light-mode') !default;
+$code-bg:           main-palette('tcs-background-highlight', 'light-mode') !default;
 
-$kbd-color:                   #fff !default;
-$kbd-bg:                      #333 !default;
+$kbd-color:         main-palette('tcs-body-text', 'dark-mode') !default;
+$kbd-bg:            main-palette('tcs-background', 'dark-mode') !default;
 
-$pre-bg:                      #f5f5f5 !default;
-$pre-color:                   $gray-dark !default;
-$pre-border-color:            #ccc !default;
+$pre-bg:            main-palette('tcs-background', 'dark-mode') !default;
+$pre-color:         main-palette('tcs-body-text', 'dark-mode') !default;
+$pre-border-color:  main-palette('tcs-emphasized-content', 'dark-mode') !default;
 $pre-scrollable-max-height:   340px !default;
 
 
@@ -853,7 +913,7 @@ $pre-scrollable-max-height:   340px !default;
 //** Horizontal offset for forms and lists.
 $component-offset-horizontal: 180px !default;
 //** Text muted color
-$text-muted:                  $gray-light !default;
+$text-muted:                  main-palette('tcs-comments', 'light-mode') !default;
 //** Abbreviations and acronyms border color
 $abbr-border-color:           $gray-light !default;
 //** Headings small color

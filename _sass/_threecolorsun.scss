@@ -4,14 +4,17 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 
-// Three Color Sun theme things
-// (import these first to define the variables before bootstrap does)
-@import "threecolorsun/tcs-miscellaneous-styles";
-@import "threecolorsun/tcs-colors";
 
 // Core variables and mixins
 @import "tcsbootstrap/variables";
 @import "tcsbootstrap/mixins";
+
+// Three Color Sun theme things
+@import "threecolorsun/tcs-miscellaneous-styles";
+@import "threecolorsun/tcs-colors";
+
+// Syntax highlighting
+@import "tcsbootstrap/syntax-highlighting";
 
 // Reset and dependencies
 @import "tcsbootstrap/normalize";
@@ -60,3 +63,5 @@
 @import "tcsbootstrap/utilities";
 @import "tcsbootstrap/responsive-utilities";
 
+// Color schemes
+@import "threecolorsun/tcs-color-schemes";
