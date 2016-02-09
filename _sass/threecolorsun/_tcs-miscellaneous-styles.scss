@@ -9,7 +9,10 @@ body {
     /* Margin bottom by footer height */
     margin-bottom: 60px;
 }
-.footer {
+.push {
+    height: 60px;
+}
+#footer {
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -41,4 +44,16 @@ body {
 }
 #tcs-navbar ul.dropdown-menu {
     background-color: main-palette('tcs-background-highlight', 'light-mode');
+}
+
+/*
+ * Date styling
+ */
+div.page-header + div.date {
+    padding-bottom: 15px;
+
+    span {
+        color: main-palette('tcs-emphasized-content', 'light-mode');
+        font-size: 1.1em;
+    }
 }

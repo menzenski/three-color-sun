@@ -34,8 +34,8 @@ var accentColorButtons = [
 $.each(accentColorButtons, function(idx, obj) {
     $.each(obj, function() {
         $(obj.btn_id).on('click', function() {
-            removeAccentColors($('.tcs-accent, h1, h2, a'));
-            $('.tcs-accent, h1, h2, a').addClass(obj.btn_mode);
+            removeAccentColors($('.tcs-accent, h2, a'));
+            $('.tcs-accent, h2, a').addClass(obj.btn_mode);
         });
     });
 });

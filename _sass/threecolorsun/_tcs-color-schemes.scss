@@ -8,19 +8,14 @@ html.tcs-light-mode body,
         background: main-palette('tcs-background-highlight', 'light-mode');
     }
 
-    .tcs-light-mode #tcs-navbar .dropdown-menu #tcs-color-dropdown {
+    .tcs-light-mode #tcs-navbar .dropdown .dropdown-menu #tcs-color-dropdown,
+    .tcs-light-mode #tcs-navbar .dropdown.open .dropdown-menu
+        #tcs-color-dropdown,
+    .tcs-light-mode #tcs-navbar .navbar-collapse.collapse.in
+        .dropdown-menu #tcs-color-dropdown {
 
         background-color: main-palette('tcs-background-highlight', 'light-mode');
 
-        @for $i from 1 through length($accent-class-names) {
-            > li > a.#{nth($accent-class-names, $i)} {
-                color: accent-palette(nth($accent-color-names, $i));
-                &:hover {
-                    color: main-palette('tcs-background', 'light-mode');
-                    background-color: accent-palette(nth($accent-color-names, $i));
-                }
-            }
-        }
         > li > a.tcs-light-mode-hl {
             color: main-palette('tcs-body-text', 'light-mode');
             &:hover {
@@ -33,6 +28,15 @@ html.tcs-light-mode body,
             &:hover {
                 color: main-palette('tcs-emphasized-content', 'dark-mode');
                 background-color: main-palette('tcs-background', 'dark-mode');
+            }
+        }
+    }
+    @for $i from 1 through length($accent-class-names) {
+       #tcs-navbar-collapse #tcs-color-dropdown a.#{nth($accent-class-names, $i)} {
+            color: accent-palette(nth($accent-color-names, $i));
+            &:hover {
+                color: main-palette('tcs-background', 'light-mode');
+                background-color: accent-palette(nth($accent-color-names, $i));
             }
         }
     }
@@ -69,6 +73,15 @@ html.tcs-dark-mode body,
             &:hover {
                 color: main-palette('tcs-emphasized-content', 'dark-mode');
                 background-color: main-palette('tcs-background', 'dark-mode');
+            }
+        }
+    }
+    @for $i from 1 through length($accent-class-names) {
+       #tcs-navbar-collapse #tcs-color-dropdown a.#{nth($accent-class-names, $i)} {
+            color: accent-palette(nth($accent-color-names, $i));
+            &:hover {
+                color: main-palette('tcs-background', 'dark-mode');
+                background-color: accent-palette(nth($accent-color-names, $i));
             }
         }
     }

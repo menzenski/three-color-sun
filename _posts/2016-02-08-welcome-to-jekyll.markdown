@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Welcome to Jekyll!"
+title:  "Welcome to Jekyll! (Dark mode)"
 color_scheme: "dark"
 date:   2016-02-07 17:35:01 -0600
 ---
