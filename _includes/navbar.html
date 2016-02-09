@@ -2,64 +2,68 @@
     role="navigation">
 
   <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-lg-8 col-lg-offset-2">
 
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse"
-          data-target="#tcs-navbar-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button><!-- /.navbar-toggle -->
-      {% include base.html %}
-      <a class="navbar-brand" id="tcs-navbar-brand"
-          href="{{ base }}{{ site.baseurl }}">{{ site.title }}</a>
-    </div><!-- /.navbar-header -->
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse"
+              data-target="#tcs-navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button><!-- /.navbar-toggle -->
+          {% include base.html %}
+          <a class="navbar-brand" id="tcs-navbar-brand"
+              href="{{ base }}{{ site.baseurl }}">{{ site.title }}</a>
+        </div><!-- /.navbar-header -->
 
-    <!-- Collect nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="tcs-navbar-collapse">
-      <ul class="nav navbar-nav">
-        {% assign pages_list = site.pages %}
-        {% assign group = 'navigation' %}
-        {% include page_list.html %}
-      </ul><!-- /.nav .navbar-nav -->
+        <!-- Collect nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="tcs-navbar-collapse">
+          <ul class="nav navbar-nav">
+            {% assign pages_list = site.pages %}
+            {% assign group = 'navigation' %}
+            {% include page_list.html %}
+          </ul><!-- /.nav .navbar-nav -->
 
-      <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"
-              role="button" aria-haspopup="true"
-              aria-expanded="false">Settings<span class="caret"></span></a>
-            <ul class="dropdown-menu" id="tcs-color-dropdown">
-              <li>Color palette</li>
-              <li><a href="#" class="tcs-light-mode-hl"
-                  id="tcs-go-light">Light</a></li>
-              <li><a href="#" class="tcs-dark-mode-hl"
-                  id="tcs-go-dark">Dark</a></li>
-              <li role="separator" class="divider"></li>
-              <li>Accent color</li>
-              <li><a href="#" class="tcs-yellow-hl"
-                  id="tcs-go-yellow">Yellow</a></li>
-              <li><a href="#" class="tcs-orange-hl"
-                  id="tcs-go-orange">Orange</a></li>
-              <li><a href="#" class="tcs-red-hl"
-                  id="tcs-go-red">Red</a></li>
-              <li><a href="#" class="tcs-magenta-hl"
-                  id="tcs-go-magenta">Magenta</a></li>
-              <li><a href="#" class="tcs-violet-hl"
-                  id="tcs-go-violet">Violet</a></li>
-              <li><a href="#" class="tcs-blue-hl"
-                  id="tcs-go-blue">Blue</a></li>
-              <li><a href="#" class="tcs-cyan-hl"
-                  id="tcs-go-cyan">Cyan</a></li>
-              <li><a href="#" class="tcs-green-hl"
-                  id="tcs-go-green">Green</a></li>
-            </ul><!-- /.dropdown-menu -->
-        </li><!-- /.dropdown -->
-      </ul><!-- /.nav .navbar-nav .navbar-right -->
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                  role="button" aria-haspopup="true"
+                  aria-expanded="false">Settings<span class="caret"></span></a>
+                <ul class="dropdown-menu" id="tcs-color-dropdown">
+                  <li>Color palette</li>
+                  <li><a href="#" class="tcs-light-mode-hl"
+                      id="tcs-go-light">Light</a></li>
+                  <li><a href="#" class="tcs-dark-mode-hl"
+                      id="tcs-go-dark">Dark</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li>Accent color</li>
+                  <li><a href="#" class="tcs-yellow-hl"
+                      id="tcs-go-yellow">Yellow</a></li>
+                  <li><a href="#" class="tcs-orange-hl"
+                      id="tcs-go-orange">Orange</a></li>
+                  <li><a href="#" class="tcs-red-hl"
+                      id="tcs-go-red">Red</a></li>
+                  <li><a href="#" class="tcs-magenta-hl"
+                      id="tcs-go-magenta">Magenta</a></li>
+                  <li><a href="#" class="tcs-violet-hl"
+                      id="tcs-go-violet">Violet</a></li>
+                  <li><a href="#" class="tcs-blue-hl"
+                      id="tcs-go-blue">Blue</a></li>
+                  <li><a href="#" class="tcs-cyan-hl"
+                      id="tcs-go-cyan">Cyan</a></li>
+                  <li><a href="#" class="tcs-green-hl"
+                      id="tcs-go-green">Green</a></li>
+                </ul><!-- /.dropdown-menu -->
+            </li><!-- /.dropdown -->
+          </ul><!-- /.nav .navbar-nav .navbar-right -->
 
-    </div><!-- /.collapse .navbar-collapse -->
+        </div><!-- /.collapse .navbar-collapse -->
 
+      </div><!-- /.col-xs-12 ... -->
+    </div><!-- /.row -->
   </div><!-- /.container -->
 
 </nav><!-- /.navbar .navbar-default -->
