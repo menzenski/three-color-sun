@@ -1,64 +1,113 @@
 $scheme-map: (
-    light-mode: 'light-mode',
-    dark-mode: 'dark-mode'
+  light-mode: 'light-mode',
+  dark-mode: 'dark-mode'
+);
+
+$inverse-map: (
+  light-mode: 'dark-mode',
+  dark-mode: 'light-mode'
 );
 
 @each $scheme-name, $scheme-string in $scheme-map {
-    html.tcs-#{$scheme-name} body {
-        background: main-palette('tcs-background', $scheme-string);
-        color: main-palette('tcs-body-text', $scheme-string);
+  html.tcs-#{$scheme-name} body {
+    background: main-palette('tcs-background', $scheme-string);
+    color: main-palette('tcs-body-text', $scheme-string);
 
-        div#tcs-navbar {
-            background: main-palette('tcs-background-highlight', $scheme-string);
-        }
-
-        #tcs-navbar-collapse #tcs-color-dropdown a.tcs-light-mode-hl {
-            color: main-palette('tcs-body-text', 'light-mode');
-            &:hover {
-                color: main-palette('tcs-emphasized-content', 'light-mode');
-                background-color: main-palette('tcs-background', 'light-mode');
-            }
-        }
-
-        #tcs-navbar-collapse #tcs-color-dropdown a.tcs-dark-mode-hl {
-            color: main-palette('tcs-body-text', 'dark-mode');
-            &:hover {
-                color: main-palette('tcs-emphasized-content', 'dark-mode');
-                background-color: main-palette('tcs-background', 'dark-mode');
-            }
-        }
-
-        @for $i from 1 through length($accent-class-names) {
-            #tcs-navbar-collapse #tcs-color-dropdown a.#{nth($accent-class-names, $i)} {
-                color: accent-palette(nth($accent-color-names, $i));
-                &:hover {
-                    color: main-palette('tcs-background', $scheme-string);
-                    background-color: accent-palette(nth($accent-color-names, $i));
-                }
-            }
-        }
-
+    div#tcs-navbar {
+      background: main-palette('tcs-background-highlight', $scheme-string);
     }
+
+    @each $sub-name, $sub-string in $scheme-map {
+      #tcs-navbar-collapse #tcs-color-dropdown a.tcs-#{$sub-name}-hl {
+        color: main-palette('tcs-body-text', $sub-string);
+        &:hover {
+          color: main-palette('tcs-emphasized-content', $sub-string);
+          background-color: main-palette('tcs-background', $sub-string);
+        }
+      }
+      figure.highlight {
+        background: main-palette('tcs-background', $sub-string);
+      }
+    }
+
+    @for $i from 1 through length($accent-class-names) {
+      #tcs-navbar-collapse #tcs-color-dropdown a.#{nth($accent-class-names, $i)} {
+        color: accent-palette(nth($accent-color-names, $i));
+        &:hover {
+          color: main-palette('tcs-background', $scheme-string);
+          background-color: accent-palette(nth($accent-color-names, $i));
+        }
+      }
+    }
+
+    code.highlighter-rouge {
+      color: main-palette('tcs-emphasized-content', $scheme-string);
+      background: main-palette('tcs-background-highlight', $scheme-string);
+      border: 1px solid main-palette('tcs-comments', $scheme-string);
+    }
+
+    #tcs-navbar {
+      border: none;
+    }
+
+    #tcs-navbar-brand {
+      font-size: 1.5em;
+    }
+
+    #tcs-navbar,
+    #tcs-navbar ul.dropdown-menu,
+    #tcs-navbar a.dropdown-toggle,
+    #tcs-navbar a.dropdown-toggle.open,
+    #footer  {
+      color: main-palette('tcs-emphasized-content', $scheme-string);
+      background-color: main-palette('tcs-background-highlight', $scheme-string);
+    }
+
+    a#tcs-navbar-brand.navbar-brand {
+      color: main-palette('tcs-emphasized-content', $scheme-string);
+      &:hover {
+          color: $brand-primary;
+      }
+    }
+
+    .page-header {
+      border-bottom: 2px solid main-palette('tcs-background-highlight', $scheme-string);
+    }
+
+    div.page-header + div.date {
+      padding-bottom: 15px;
+
+      span {
+        color: main-palette('tcs-emphasized-content', $scheme-string);
+        font-size: 1.1em;
+      }
+    }
+
+    #tcs-color-dropdown li.divider {
+      background: main-palette('tcs-background', $scheme-string);
+    }
+
+  }
 }
 
 // set a default accent color
 .tcs-accent {
-    color: $brand-primary;
+  color: $brand-primary;
 }
 
 $color-map: (
-    tcs-accent-yellow:     'tcs-yellow',
-    tcs-accent-orange:     'tcs-orange',
-    tcs-accent-red:        'tcs-red',
-    tcs-accent-magenta:    'tcs-magenta',
-    tcs-accent-violet:     'tcs-violet',
-    tcs-accent-blue:       'tcs-blue',
-    tcs-accent-cyan:       'tcs-cyan',
-    tcs-accent-green:      'tcs-green'
+  tcs-accent-yellow:  'tcs-yellow',
+  tcs-accent-orange:  'tcs-orange',
+  tcs-accent-red:     'tcs-red',
+  tcs-accent-magenta: 'tcs-magenta',
+  tcs-accent-violet:  'tcs-violet',
+  tcs-accent-blue:    'tcs-blue',
+  tcs-accent-cyan:    'tcs-cyan',
+  tcs-accent-green:   'tcs-green'
 );
 
 @each $cls-name, $col-string in $color-map {
-    .#{$cls-name} {
-        color: accent-palette($col-string);
-    }
+  .#{$cls-name} {
+  color: accent-palette($col-string);
+  }
 }

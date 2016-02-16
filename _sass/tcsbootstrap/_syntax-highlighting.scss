@@ -287,9 +287,9 @@ $code-colors: (
 //    @return map-get(map-get($code-colors, $palette), $mode);
 // }
 
-@import "variables";
+// @import "variables";
 
-@function code-color($palette, $mode: 'light-mode') {
+@function code-color($palette, $mode) {
     @if map-has-key($code-colors, $palette) {
         @if map-has-key(map-get($code-colors, $palette), $mode) {
             @return map-get(map-get($code-colors, $palette), $mode);
@@ -304,175 +304,101 @@ $code-colors: (
 // usage example:
 // code-color('name', 'light-mode')
 
+$syntax-map: (
+  light-mode: 'dark-mode',
+  dark-mode: 'light-mode'
+);
 
-html.tcs-light-mode {
+@each $mode-name, $mode-string in $syntax-map {
+
+  html.tcs-#{$mode-name} {
+
+    pre {
+      background: code-color('background', $mode-string);
+      color: code-color('generic', $mode-string);
+    }
 
     .highlight {
-        background: code-color('background', 'light-mode');
+        background: code-color('background', $mode-string);
         @extend %vertical-rhythm !optional;
 
         .highlighter-rouge & {
-            background: code-color('background', 'light-mode');
+            background: code-color('background', $mode-string);
         }
 
-        .c        { color: code-color('comment', 'light-mode');
+        .c        { color: code-color('comment', $mode-string);
                   font-style: italic; }
-        .err      { color: code-color('error', 'light-mode'); }
-        .k        { color: code-color('keyword', 'light-mode'); }
-        .o        { color: code-color('operator', 'light-mode'); }
-        .cm       { color: code-color('commentmultiline', 'light-mode'); }
-        .cp       { color: code-color('commentpreproc', 'light-mode'); }
-        .c1       { color: code-color('commentsingle', 'light-mode'); }
-        .cs       { color: code-color('commentspecial', 'light-mode');
+        .err      { color: code-color('error', $mode-string); }
+        .k        { color: code-color('keyword', $mode-string); }
+        .o        { color: code-color('operator', $mode-string); }
+        .cm       { color: code-color('commentmultiline', $mode-string); }
+        .cp       { color: code-color('commentpreproc', $mode-string); }
+        .c1       { color: code-color('commentsingle', $mode-string); }
+        .cs       { color: code-color('commentspecial', $mode-string);
                     font-weight: bold; font-style: italic; }
-        .gd       { color: code-color('genericdeleted', 'light-mode'); }
-        .gd .x    { color: code-color('genericdeleted', 'light-mode'); }
-        .ge       { color: code-color('genericemph', 'light-mode');
+        .gd       { color: code-color('genericdeleted', $mode-string); }
+        .gd .x    { color: code-color('genericdeleted', $mode-string); }
+        .ge       { color: code-color('genericemph', $mode-string);
                     font-style: italic; }
-        .gr       { color: code-color('genericerror', 'light-mode'); }
-        .gh       { color: code-color('genericheading', 'light-mode'); }
-        .gi       { color: code-color('genericinserted', 'light-mode'); }
-        .gi .x    { color: code-color('genericinserted', 'light-mode'); }
-        .go       { color: code-color('genericoutput', 'light-mode'); }
-        .gp       { color: code-color('genericprompt', 'light-mode'); }
-        .gs       { color: code-color('genericstrong', 'light-mode');
+        .gr       { color: code-color('genericerror', $mode-string); }
+        .gh       { color: code-color('genericheading', $mode-string); }
+        .gi       { color: code-color('genericinserted', $mode-string); }
+        .gi .x    { color: code-color('genericinserted', $mode-string); }
+        .go       { color: code-color('genericoutput', $mode-string); }
+        .gp       { color: code-color('genericprompt', $mode-string); }
+        .gs       { color: code-color('genericstrong', $mode-string);
                     font-weight: bold; }
-        .gu       { color: code-color('genericsubheading', 'light-mode'); }
-        .gt       { color: code-color('generictraceback', 'light-mode'); }
-        .kc       { color: code-color('keywordconstant', 'light-mode');
+        .gu       { color: code-color('genericsubheading', $mode-string); }
+        .gt       { color: code-color('generictraceback', $mode-string); }
+        .kc       { color: code-color('keywordconstant', $mode-string);
                     font-weight: bold; }
-        .kd       { color: code-color('keyworddeclaration', 'light-mode');
+        .kd       { color: code-color('keyworddeclaration', $mode-string);
                     font-weight: bold; }
-        .kp       { color: code-color('keywordpseudo', 'light-mode');
+        .kp       { color: code-color('keywordpseudo', $mode-string);
                     font-weight: bold; }
-        .kr       { color: code-color('keywordreserved', 'light-mode');
+        .kr       { color: code-color('keywordreserved', $mode-string);
                     font-weight: bold; }
-        .kt       { color: code-color('keywordtype', 'light-mode');
+        .kt       { color: code-color('keywordtype', $mode-string);
                     font-weight: bold; }
-        .m        { color: code-color('literalnumber', 'light-mode'); }
-        .s        { color: code-color('literalstring', 'light-mode'); }
-        .na       { color: code-color('nameattribute', 'light-mode'); }
-        .nb       { color: code-color('namebuiltin', 'light-mode'); }
-        .nc       { color: code-color('nameclass', 'light-mode');
+        .m        { color: code-color('literalnumber', $mode-string); }
+        .s        { color: code-color('literalstring', $mode-string); }
+        .na       { color: code-color('nameattribute', $mode-string); }
+        .nb       { color: code-color('namebuiltin', $mode-string); }
+        .nc       { color: code-color('nameclass', $mode-string);
                     font-weight: bold; }
-        .no       { color: code-color('nameconstant', 'light-mode'); }
-        .ni       { color: code-color('nameentity', 'light-mode'); }
-        .ne       { color: code-color('nameexception', 'light-mode');
+        .no       { color: code-color('nameconstant', $mode-string); }
+        .ni       { color: code-color('nameentity', $mode-string); }
+        .ne       { color: code-color('nameexception', $mode-string);
                     font-weight: bold; }
-        .nf       { color: code-color('namefunction', 'light-mode');
+        .nf       { color: code-color('namefunction', $mode-string);
                     font-weight: bold; }
-        .nn       { color: code-color('namenamespace', 'light-mode'); }
-        .nt       { color: code-color('nametag', 'light-mode'); }
-        .nv       { color: code-color('namevariable', 'light-mode'); }
-        .ow       { color: code-color('operatorword', 'light-mode'); }
-        .w        { color: code-color('textwhitespace', 'light-mode'); }
-        .mf       { color: code-color('literalnumberfloat', 'light-mode'); }
-        .mh       { color: code-color('literalnumberhex', 'light-mode'); }
-        .mi       { color: code-color('literalnumberinteger', 'light-mode'); }
-        .mo       { color: code-color('literalnumberoct', 'light-mode'); }
-        .sb       { color: code-color('literalstringbacktick', 'light-mode'); }
-        .sc       { color: code-color('literalstringchar', 'light-mode'); }
-        .sd       { color: code-color('literalstringdoc', 'light-mode'); }
-        .s2       { color: code-color('literalstringdouble', 'light-mode'); }
-        .se       { color: code-color('literalstringescape', 'light-mode'); }
-        .sh       { color: code-color('literalstringheredoc', 'light-mode'); }
-        .si       { color: code-color('literalstringinterpol', 'light-mode'); }
-        .sx       { color: code-color('literalstringother', 'light-mode'); }
-        .sr       { color: code-color('literalstringregex', 'light-mode'); }
-        .s1       { color: code-color('literalstringsingle', 'light-mode'); }
-        .ss       { color: code-color('literalstringsymbol', 'light-mode'); }
-        .bp       { color: code-color('namebuiltinpseudo', 'light-mode'); }
-        .vc       { color: code-color('namevariableclass', 'light-mode'); }
-        .vg       { color: code-color('namevariableglobal', 'light-mode'); }
-        .vi       { color: code-color('namevariableinstance', 'light-mode'); }
-        .il       { color: code-color('literalnumberintegerlong', 'light-mode'); }
+        .nn       { color: code-color('namenamespace', $mode-string); }
+        .nt       { color: code-color('nametag', $mode-string); }
+        .nv       { color: code-color('namevariable', $mode-string); }
+        .ow       { color: code-color('operatorword', $mode-string); }
+        .w        { color: code-color('textwhitespace', $mode-string); }
+        .mf       { color: code-color('literalnumberfloat', $mode-string); }
+        .mh       { color: code-color('literalnumberhex', $mode-string); }
+        .mi       { color: code-color('literalnumberinteger', $mode-string); }
+        .mo       { color: code-color('literalnumberoct', $mode-string); }
+        .sb       { color: code-color('literalstringbacktick', $mode-string); }
+        .sc       { color: code-color('literalstringchar', $mode-string); }
+        .sd       { color: code-color('literalstringdoc', $mode-string); }
+        .s2       { color: code-color('literalstringdouble', $mode-string); }
+        .se       { color: code-color('literalstringescape', $mode-string); }
+        .sh       { color: code-color('literalstringheredoc', $mode-string); }
+        .si       { color: code-color('literalstringinterpol', $mode-string); }
+        .sx       { color: code-color('literalstringother', $mode-string); }
+        .sr       { color: code-color('literalstringregex', $mode-string); }
+        .s1       { color: code-color('literalstringsingle', $mode-string); }
+        .ss       { color: code-color('literalstringsymbol', $mode-string); }
+        .bp       { color: code-color('namebuiltinpseudo', $mode-string); }
+        .vc       { color: code-color('namevariableclass', $mode-string); }
+        .vg       { color: code-color('namevariableglobal', $mode-string); }
+        .vi       { color: code-color('namevariableinstance', $mode-string); }
+        .il       { color: code-color('literalnumberintegerlong', $mode-string); }
 
     }
-
+  }
 }
 
-html.tcs-dark-mode {
-
-    .highlight {
-        background: code-color('background', 'dark-mode');
-        @extend %vertical-rhythm !optional;
-
-        .highlighter-rouge & {
-            background: code-color('background', 'dark-mode');
-        }
-
-        .c        { color: code-color('comment', 'dark-mode');
-                  font-style: italic; }
-        .err      { color: code-color('error', 'dark-mode'); }
-        .k        { color: code-color('keyword', 'dark-mode'); }
-        .o        { color: code-color('operator', 'dark-mode'); }
-        .cm       { color: code-color('commentmultiline', 'dark-mode'); }
-        .cp       { color: code-color('commentpreproc', 'dark-mode'); }
-        .c1       { color: code-color('commentsingle', 'dark-mode'); }
-        .cs       { color: code-color('commentspecial', 'dark-mode');
-                    font-weight: bold; font-style: italic; }
-        .gd       { color: code-color('genericdeleted', 'dark-mode'); }
-        .gd .x    { color: code-color('genericdeleted', 'dark-mode'); }
-        .ge       { color: code-color('genericemph', 'dark-mode');
-                    font-style: italic; }
-        .gr       { color: code-color('genericerror', 'dark-mode'); }
-        .gh       { color: code-color('genericheading', 'dark-mode'); }
-        .gi       { color: code-color('genericinserted', 'dark-mode'); }
-        .gi .x    { color: code-color('genericinserted', 'dark-mode'); }
-        .go       { color: code-color('genericoutput', 'dark-mode'); }
-        .gp       { color: code-color('genericprompt', 'dark-mode'); }
-        .gs       { color: code-color('genericstrong', 'dark-mode');
-                    font-weight: bold; }
-        .gu       { color: code-color('genericsubheading', 'dark-mode'); }
-        .gt       { color: code-color('generictraceback', 'dark-mode'); }
-        .kc       { color: code-color('keywordconstant', 'dark-mode');
-                    font-weight: bold; }
-        .kd       { color: code-color('keyworddeclaration', 'dark-mode');
-                    font-weight: bold; }
-        .kp       { color: code-color('keywordpseudo', 'dark-mode');
-                    font-weight: bold; }
-        .kr       { color: code-color('keywordreserved', 'dark-mode');
-                    font-weight: bold; }
-        .kt       { color: code-color('keywordtype', 'dark-mode');
-                    font-weight: bold; }
-        .m        { color: code-color('literalnumber', 'dark-mode'); }
-        .s        { color: code-color('literalstring', 'dark-mode'); }
-        .na       { color: code-color('nameattribute', 'dark-mode'); }
-        .nb       { color: code-color('namebuiltin', 'dark-mode'); }
-        .nc       { color: code-color('nameclass', 'dark-mode');
-                    font-weight: bold; }
-        .no       { color: code-color('nameconstant', 'dark-mode'); }
-        .ni       { color: code-color('nameentity', 'dark-mode'); }
-        .ne       { color: code-color('nameexception', 'dark-mode');
-                    font-weight: bold; }
-        .nf       { color: code-color('namefunction', 'dark-mode');
-                    font-weight: bold; }
-        .nn       { color: code-color('namenamespace', 'dark-mode'); }
-        .nt       { color: code-color('nametag', 'dark-mode'); }
-        .nv       { color: code-color('namevariable', 'dark-mode'); }
-        .ow       { color: code-color('operatorword', 'dark-mode'); }
-        .w        { color: code-color('textwhitespace', 'dark-mode'); }
-        .mf       { color: code-color('literalnumberfloat', 'dark-mode'); }
-        .mh       { color: code-color('literalnumberhex', 'dark-mode'); }
-        .mi       { color: code-color('literalnumberinteger', 'dark-mode'); }
-        .mo       { color: code-color('literalnumberoct', 'dark-mode'); }
-        .sb       { color: code-color('literalstringbacktick', 'dark-mode'); }
-        .sc       { color: code-color('literalstringchar', 'dark-mode'); }
-        .sd       { color: code-color('literalstringdoc', 'dark-mode'); }
-        .s2       { color: code-color('literalstringdouble', 'dark-mode'); }
-        .se       { color: code-color('literalstringescape', 'dark-mode'); }
-        .sh       { color: code-color('literalstringheredoc', 'dark-mode'); }
-        .si       { color: code-color('literalstringinterpol', 'dark-mode'); }
-        .sx       { color: code-color('literalstringother', 'dark-mode'); }
-        .sr       { color: code-color('literalstringregex', 'dark-mode'); }
-        .s1       { color: code-color('literalstringsingle', 'dark-mode'); }
-        .ss       { color: code-color('literalstringsymbol', 'dark-mode'); }
-        .bp       { color: code-color('namebuiltinpseudo', 'dark-mode'); }
-        .vc       { color: code-color('namevariableclass', 'dark-mode'); }
-        .vg       { color: code-color('namevariableglobal', 'dark-mode'); }
-        .vi       { color: code-color('namevariableinstance', 'dark-mode'); }
-        .il       { color: code-color('literalnumberintegerlong', 'dark-mode'); }
-
-    }
-
-}

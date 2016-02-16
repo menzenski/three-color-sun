@@ -17,7 +17,7 @@ body {
     bottom: 0;
     width: 100%;
     height: 60px;
-    background-color: main-palette('tcs-background-highlight', 'light-mode');
+    // background-color: main-palette('tcs-background-highlight', 'light-mode');
 }
 .container .text-muted {
     margin: 20px 0;
@@ -28,32 +28,4 @@ body {
 }
 .navbar-static-top {
     margin-bottom: 19px;
-}
-
-/*
- * Navbar styling
- */
-#tcs-navbar,
-#tcs-navbar ul.dropdown-menu,
-#tcs-navbar a.dropdown-toggle,
-#tcs-navbar a.dropdown-toggle.open {
-    background-color: main-palette('tcs-background-highlight', 'light-mode');
-}
-#tcs-navbar-brand {
-    font-size: 1.5em;
-}
-#tcs-navbar ul.dropdown-menu {
-    background-color: main-palette('tcs-background-highlight', 'light-mode');
-}
-
-/*
- * Date styling
- */
-div.page-header + div.date {
-    padding-bottom: 15px;
-
-    span {
-        color: main-palette('tcs-emphasized-content', 'light-mode');
-        font-size: 1.1em;
-    }
 }
