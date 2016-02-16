@@ -29,3 +29,14 @@ body {
 .navbar-static-top {
     margin-bottom: 19px;
 }
+i.fa {
+  font-size: 1.5em;
+}
+ul.post-list li span.post-meta + h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+ul.post-list p.post-excerpt {
+  margin-bottom: 30px;
+}
