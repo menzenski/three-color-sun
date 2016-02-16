@@ -1,0 +1,64 @@
+$scheme-map: (
+    light-mode: 'light-mode',
+    dark-mode: 'dark-mode'
+);
+
+@each $scheme-name, $scheme-string in $scheme-map {
+    html.tcs-#{$scheme-name} body {
+        background: main-palette('tcs-background', $scheme-string);
+        color: main-palette('tcs-body-text', $scheme-string);
+
+        div#tcs-navbar {
+            background: main-palette('tcs-background-highlight', $scheme-string);
+        }
+
+        #tcs-navbar-collapse #tcs-color-dropdown a.tcs-light-mode-hl {
+            color: main-palette('tcs-body-text', 'light-mode');
+            &:hover {
+                color: main-palette('tcs-emphasized-content', 'light-mode');
+                background-color: main-palette('tcs-background', 'light-mode');
+            }
+        }
+
+        #tcs-navbar-collapse #tcs-color-dropdown a.tcs-dark-mode-hl {
+            color: main-palette('tcs-body-text', 'dark-mode');
+            &:hover {
+                color: main-palette('tcs-emphasized-content', 'dark-mode');
+                background-color: main-palette('tcs-background', 'dark-mode');
+            }
+        }
+
+        @for $i from 1 through length($accent-class-names) {
+            #tcs-navbar-collapse #tcs-color-dropdown a.#{nth($accent-class-names, $i)} {
+                color: accent-palette(nth($accent-color-names, $i));
+                &:hover {
+                    color: main-palette('tcs-background', $scheme-string);
+                    background-color: accent-palette(nth($accent-color-names, $i));
+                }
+            }
+        }
+
+    }
+}
+
+// set a default accent color
+.tcs-accent {
+    color: $brand-primary;
+}
+
+$color-map: (
+    tcs-accent-yellow:     'tcs-yellow',
+    tcs-accent-orange:     'tcs-orange',
+    tcs-accent-red:        'tcs-red',
+    tcs-accent-magenta:    'tcs-magenta',
+    tcs-accent-violet:     'tcs-violet',
+    tcs-accent-blue:       'tcs-blue',
+    tcs-accent-cyan:       'tcs-cyan',
+    tcs-accent-green:      'tcs-green'
+);
+
+@each $cls-name, $col-string in $color-map {
+    .#{$cls-name} {
+        color: accent-palette($col-string);
+    }
+}
