@@ -63,7 +63,8 @@ $inverse-map: (
       background-color: main-palette('tcs-background-highlight', $scheme-string);
     }
 
-    a#tcs-navbar-brand.navbar-brand {
+    a#tcs-navbar-brand.navbar-brand,
+    #tcs-navbar-collapse li a {
       color: main-palette('tcs-emphasized-content', $scheme-string);
       &:hover {
           color: $brand-primary;

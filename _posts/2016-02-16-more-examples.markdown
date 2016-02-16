@@ -5,7 +5,7 @@ date: 2016-02-16 14:04:00 -0600
 ---
 To switch directories, type <kbd>cd</kbd> followed by the name of the directory.
 
-To edit settings, press <kbd><kbd>ctrl</kbd> + <kbd>,</kbd></kbd>.
+To edit settings, press <kbd><kbd>ctrl</kbd> + <kbd>,</kbd></kbd>.<!--more-->
 
 ## Python code example
 
