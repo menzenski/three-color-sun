@@ -21,7 +21,8 @@ github_username:  jekyll
 author:
     name: Firstname Lastname
 
-# Build settings
+# Jekyll settings
+permalink: /:year/:month/:day/:title/
 markdown: kramdown
 sass:
     style: compressed
